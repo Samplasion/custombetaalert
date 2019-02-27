@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>footerText</key>
+			<string>The changes will be applied in real time as soon as you return to the SpringBoard</string>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>CustomBetaAlert Preferences</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.samplasion.custombetaalertprefs</string>
+			<key>key</key>
+			<string>enabled</string>
+			<key>label</key>
+			<string>Enabled</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>default</key>
+			<string>A new iOS update is now available. Please update from the iOS 12 beta.</string>
+			<key>defaults</key>
+			<string>com.samplasion.custombetaalertprefs</string>
+			<key>key</key>
+			<string>title</string>
+			<key>label</key>
+			<string>Notification Title</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>default</key>
+			<string></string>
+			<key>defaults</key>
+			<string>com.samplasion.custombetaalertprefs</string>
+			<key>key</key>
+			<string>msg</string>
+			<key>label</key>
+			<string>Notification Subtitle</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>default</key>
+			<string>Close</string>
+			<key>defaults</key>
+			<string>com.samplasion.custombetaalertprefs</string>
+			<key>key</key>
+			<string>button</string>
+			<key>label</key>
+			<string>"Close" Button text</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>CustomBetaAlert</string>
+</dict>
+</plist>
