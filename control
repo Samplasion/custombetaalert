@@ -1,9 +1,9 @@
 Package: com.samplasion.custombetaalert
 Name: CustomBetaAlert
 Depends: mobilesubstrate
-Version: 0.0.1
+Version: 1.0.0
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
+Description: Recreate the annoying beta update message, but now with custom text!
 Maintainer: Samplasion
 Author: Samplasion
 Section: Tweaks

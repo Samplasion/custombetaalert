@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>footerText</key>
-			<string>The changes will be applied in real time as soon as you return to the SpringBoard</string>
+			<string>The changes will be applied in real time as soon as you return to the SpringBoard. The placeholder "@@iOS" will be replaced by the major version you're running (eg. 12)</string>
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
@@ -28,7 +28,7 @@
 			<key>cell</key>
 			<string>PSEditTextCell</string>
 			<key>default</key>
-			<string>A new iOS update is now available. Please update from the iOS 12 beta.</string>
+			<string>A new iOS update is now available. Please update from the iOS @@iOS beta.</string>
 			<key>defaults</key>
 			<string>com.samplasion.custombetaalertprefs</string>
 			<key>key</key>
