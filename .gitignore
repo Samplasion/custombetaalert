@@ -24,3 +24,4 @@ packages/.DS_Store
 .theos/obj/debug/armv7/Tweak.xm.0ce188a1.o
 *.mm
 .theos/obj/debug/custombetaalertprefs.bundle/Root.plist
+.theos/*

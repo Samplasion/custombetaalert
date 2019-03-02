@@ -13,30 +13,49 @@ bool enabled;
 NSString *title;
 NSString *msg;
 NSString *button;
+NSInteger conditions;
+
+static NSString *placeholders(NSString *og) {
+  NSString *ret = og;
+  NSString *battery = [ @( [ @( [[UIDevice currentDevice] batteryLevel] * 100 ) intValue ] ) stringValue ];
+
+  ret = [ret stringByReplacingOccurrencesOfString:@"%iOS" withString:iOSVersion];
+  ret = [ret stringByReplacingOccurrencesOfString:@"%batt" withString:battery];
+  ret = [ret stringByReplacingOccurrencesOfString:@"%model" withString:[UIDevice currentDevice].localizedModel];
+
+  return ret;
+}
 
 static void loadPrefs() {
   prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:settingsPath];
   enabled = [[prefs objectForKey:@"enabled"] boolValue];
   title = [prefs objectForKey:@"title"] ?: fallbackTitle;
-  title = [title stringByReplacingOccurrencesOfString:@"@@iOS" withString:iOSVersion];
+  title = placeholders(title);
   msg = [prefs objectForKey:@"msg"] ?: fallbackMsg;
-  msg = [msg stringByReplacingOccurrencesOfString:@"@@iOS" withString:iOSVersion];
+  msg = placeholders(msg);
   button = [prefs objectForKey:@"button"] ?: fallbackButton;
-  button = [button stringByReplacingOccurrencesOfString:@"@@iOS" withString:iOSVersion];
+  button = placeholders(button);
+
+  conditions = [[prefs objectForKey:@"conditions"] intValue];
+}
+
+static bool getConditionBool() {
+  bool batteryState = [[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateCharging;
+  return enabled && (conditions == 0 || (conditions == 1 && batteryState == YES) || (conditions == 2 && batteryState == NO));
 }
 
 static void show(id ourSelf) {
   loadPrefs();
-  if (enabled) {
+  if (getConditionBool()) {
     // Initialize our alert
     UIAlertView *alert1 = [[UIAlertView alloc] initWithTitle:title
         message:msg
         delegate:ourSelf
         cancelButtonTitle:button
         otherButtonTitles:nil];
-    //Now show that alert
+    // Now show that alert
     [alert1 show];
-    //And release it. We don't want any memory leaks ;)
+    // And release it. We don't want any memory leaks ;)
     [alert1 release];
   }
   [prefs release];
