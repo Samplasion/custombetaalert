@@ -41,7 +41,11 @@ static void loadPrefs() {
 
 static bool getConditionBool() {
   bool batteryState = [[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateCharging;
-  return enabled && (conditions == 0 || (conditions == 1 && batteryState == YES) || (conditions == 2 && batteryState == NO));
+  NSInteger batteryLevel = [@([[UIDevice currentDevice] batteryLevel] * 100) intValue];
+
+  return enabled && (conditions == 0
+    || (conditions == 1 && batteryState == YES)
+    || (conditions == 2 && batteryState == NO));
 }
 
 static void show(id ourSelf) {
