@@ -50,9 +50,47 @@
 					<string>Only when not charging</string>
 				</array>
 		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSegmentCell</string>
+			<key>default</key>
+			<integer>0</integer>
+			<key>defaults</key>
+			<string>com.samplasion.custombetaalertprefs</string>
+			<key>key</key>
+			<string>batteryconditions</string>
+			<key>validValues</key>
+				<array>
+					<integer>0</integer>
+					<integer>1</integer>
+					<integer>2</integer>
+				</array>
+			<key>validTitles</key>
+				<array>
+					<string>Always</string>
+					<string>Only when battery ≥ treshold</string>
+					<string>Only when battery ≤ treshold</string>
+				</array>
+		</dict>
+		<dict>
+			<key>showValue</key>
+			<true/>
+			<key>max</key>
+			<integer>100</integer>
+			<key>min</key>
+			<integer>0</integer>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>default</key>
+			<real>50</real>
+			<key>defaults</key>
+			<string>com.samplasion.custombetaalertprefs</string>
+			<key>key</key>
+			<string>batterytreshold</string>
+		</dict>
 		<dict><!-- [[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateCharging -->
 			<key>footerText</key>
-			<string>Tip: you can use placeholders in your text: the "%iOS" placeholder will be replaced with the iOS release you're running, "%batt" will be replaced by the current battery level and "%model" is ypur device model. (eg. "%model, iOS %iOS, %batt%" would be "iPad, iOS 12, 67%" on an iPad 6th gen, on iOS 12, with the 67% of battery)</string>
+			<string>Tip: you can use placeholders in your text: the "%iOS" placeholder will be replaced with the iOS release you're running, "%batt" will be replaced by the current battery level and "%model" is your device model. (eg. "%model, iOS %iOS, %batt%" would be "iPad, iOS 12, 67%" on an iPad 6th gen, on iOS 12, with the 67% of battery)</string>
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>

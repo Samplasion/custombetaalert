@@ -5,12 +5,10 @@
 	<key>items</key>
 	<array>
 		<dict>
-			<key>footerText</key>
-			<string>The changes will be applied in real time as soon as you return to the SpringBoard</string>
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>CustomBetaAlert Preferences</string>
+			<string>Enable CBA</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -26,9 +24,83 @@
 		</dict>
 		<dict>
 			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Enabling conditions</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSegmentCell</string>
+			<key>default</key>
+			<integer>0</integer>
+			<key>defaults</key>
+			<string>com.samplasion.custombetaalertprefs</string>
+			<key>key</key>
+			<string>conditions</string>
+			<key>validValues</key>
+				<array>
+					<integer>0</integer>
+					<integer>1</integer>
+					<integer>2</integer>
+				</array>
+			<key>validTitles</key>
+				<array>
+					<string>Always</string>
+					<string>Only when charging</string>
+					<string>Only when not charging</string>
+				</array>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSegmentCell</string>
+			<key>default</key>
+			<integer>0</integer>
+			<key>defaults</key>
+			<string>com.samplasion.custombetaalertprefs</string>
+			<key>key</key>
+			<string>batteryconditions</string>
+			<key>validValues</key>
+				<array>
+					<integer>0</integer>
+					<integer>1</integer>
+					<integer>2</integer>
+				</array>
+			<key>validTitles</key>
+				<array>
+					<string>Always</string>
+					<string>Only when battery ≥ treshold</string>
+					<string>Only when battery ≤ treshold</string>
+				</array>
+		</dict>
+		<dict>
+			<key>showValue</key>
+			<true/>
+			<key>max</key>
+			<integer>100</integer>
+			<key>min</key>
+			<integer>0</integer>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>default</key>
+			<real>50</real>
+			<key>defaults</key>
+			<string>com.samplasion.custombetaalertprefs</string>
+			<key>key</key>
+			<string>batterytreshold</string>
+		</dict>
+		<dict><!-- [[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateCharging -->
+			<key>footerText</key>
+			<string>Tip: you can use placeholders in your text: the "%iOS" placeholder will be replaced with the iOS release you're running, "%batt" will be replaced by the current battery level and "%model" is your device model. (eg. "%model, iOS %iOS, %batt%" would be "iPad, iOS 12, 67%" on an iPad 6th gen, on iOS 12, with the 67% of battery)</string>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>General</string>
+		</dict>
+		<dict>
+			<key>cell</key>
 			<string>PSEditTextCell</string>
 			<key>default</key>
-			<string>A new iOS update is now available. Please update from the iOS 12 beta.</string>
+			<string>A new iOS update is now available. Please update from the iOS %iOS beta.</string>
 			<key>defaults</key>
 			<string>com.samplasion.custombetaalertprefs</string>
 			<key>key</key>
@@ -59,6 +131,38 @@
 			<string>button</string>
 			<key>label</key>
 			<string>"Close" Button text</string>
+		</dict>
+    <dict>
+      <key>cell</key>
+      <string>PSButtonCell</string>
+      <key>label</key>
+      <string>Save</string>
+      <key>action</key>
+      <string>save</string>
+    </dict>
+    <!--<dict>
+      <key>cell</key>
+      <string>PSButtonCell</string>
+      <key>label</key>
+      <string>Respring</string>
+      <key>action</key>
+      <string>respring</string>
+    </dict>-->
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Source Code</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>viewSource</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>github.png</string>
+			<key>label</key>
+			<string>Source Code</string>
 		</dict>
 	</array>
 	<key>title</key>
