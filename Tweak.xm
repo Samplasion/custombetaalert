@@ -72,13 +72,13 @@ static bool getConditionBool() {
     || (wifiConditions == 2 && wifiConnected == NO))*/
 }
 
-static void show(id ourSelf) {
+static void show() {
   loadPrefs();
   if (getConditionBool()) {
     // Initialize our alert
     UIAlertView *alert1 = [[UIAlertView alloc] initWithTitle:title
         message:msg
-        delegate:ourSelf
+        delegate:nil
         cancelButtonTitle:button
         otherButtonTitles:nil];
     // Now show that alert
@@ -91,6 +91,6 @@ static void show(id ourSelf) {
 %hook SBLockScreenManager
 - (void) _finishUIUnlockFromSource:(int)source withOptions:(id)options {
     %orig;
-    show(self);
+    show();
 }
 %end

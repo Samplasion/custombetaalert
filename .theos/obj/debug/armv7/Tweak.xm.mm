@@ -73,13 +73,13 @@ static bool getConditionBool() {
 
 }
 
-static void show(id ourSelf) {
+static void show() {
   loadPrefs();
   if (getConditionBool()) {
     
     UIAlertView *alert1 = [[UIAlertView alloc] initWithTitle:title
         message:msg
-        delegate:ourSelf
+        delegate:nil
         cancelButtonTitle:button
         otherButtonTitles:nil];
     
@@ -117,7 +117,7 @@ static void (*_logos_orig$_ungrouped$SBLockScreenManager$_finishUIUnlockFromSour
 
 static void _logos_method$_ungrouped$SBLockScreenManager$_finishUIUnlockFromSource$withOptions$(_LOGOS_SELF_TYPE_NORMAL SBLockScreenManager* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd, int source, id options) {
     _logos_orig$_ungrouped$SBLockScreenManager$_finishUIUnlockFromSource$withOptions$(self, _cmd, source, options);
-    show(self);
+    show();
 }
 
 static __attribute__((constructor)) void _logosLocalInit() {
